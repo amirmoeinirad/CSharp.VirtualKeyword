@@ -3,6 +3,7 @@
 // September 2025
 
 // Main Concepts: 'virtual', 'override' and 'new' keywords
+
 // 'virtual' means that the method can be overridden in a derived class.
 // 'override' means that the method is overriding a base class virtual method.
 // 'new' means that the method is hiding a base class method with the same name.
@@ -25,7 +26,7 @@ namespace VirtualKeywordDemo
         {
         }
 
-        // Parameterized constructor
+        // Parameterized custom constructor
         public Person(string fn, string ln)
         {
             firstName = fn;
@@ -54,7 +55,7 @@ namespace VirtualKeywordDemo
         {
         }
 
-        // Parameterized constructor
+        // Parameterized custom constructor
         // 'base()' calls the base class parameterized constructor.
         public Employee(string fn, string ln, ushort hy) : base(fn, ln)
         {
@@ -82,14 +83,14 @@ namespace VirtualKeywordDemo
         {
         }
 
-        // Parameterized constructor
+        // Parameterized custom constructor
         public Contractor(string fn, string ln, string c) : base(fn, ln)
         {
             company = c;
         }
 
         // 'override' keyword indicates that this method is overriding a base class virtual method.
-        public override void DisplayFullName()
+        public new void DisplayFullName()
         {
             Console.WriteLine("Contractor: {0} {1}", firstName, lastName);
         }
@@ -128,7 +129,7 @@ namespace VirtualKeywordDemo
             // Here, the 'virtual' keyword allows the method to be resolved at runtime based on the actual object type.
             // Thus, the overridden method in the 'Employee' class is called.
             // But, if 'new' or no keyword was used in the 'Employee' class, the base class method would be called instead.
-            // Replace 'virtual' with 'new' in the 'Employee' or 'Contractor' class to see the difference.
+            // Replace 'override' with 'new' in the 'Employee' or 'Contractor' class to see the difference.
             Person employee2 = new Employee("Bradley", "Jones", 1983);
             Person worker2 = new Contractor("Carolyn", "Curry", "Microsoft");
 
